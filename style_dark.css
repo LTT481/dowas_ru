@@ -1,0 +1,17 @@
+/* partially taken from https://rosenzweig.io/style.css */
+
+body {
+    font-family: "Cantarell", sans-serif;
+    
+    max-width: 55em;
+    margin: 0px auto;
+    padding: 0em 1em 1em 1em; 
+    line-height: 1.6;
+    
+    background-color: #222222;
+    color: #f5deb3;
+}
+
+a {
+    color: #aaaaaa;
+}
