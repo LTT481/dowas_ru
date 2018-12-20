@@ -36,7 +36,7 @@
    
    // https://stackoverflow.com/questions/196498/how-do-i-load-the-contents-of-a-text-file-into-a-javascript-variable
    var client = new XMLHttpRequest();
-   client.open('GET', '/25.md', false);
+   client.open('GET', '/dowas_ru/25.md', false);
    client.onreadystatechange = function() {
     text = client.responseText;
     html = converter.makeHtml(text);
