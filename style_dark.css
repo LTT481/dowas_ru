@@ -2,14 +2,15 @@
 
 body {
     font-family: "Cantarell", sans-serif;
+    font-size: 11pt;
     
-    max-width: 55em;
+    max-width: 60em;
     margin: 0px auto;
     padding: 0em 1em 1em 1em; 
     line-height: 1.6;
     
-    background-color: #222222;
-    color: #f5deb3;
+    background-color: #3f3f3f;
+    color: #dcdccc;
 }
 
 a {
