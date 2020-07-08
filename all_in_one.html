@@ -1,0 +1,59 @@
+<html>
+ <head>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <link type="text/css" rel="stylesheet" href="/dowas_ru/style_bright.css" id="theme_css">
+  <title>Дни Осы и Паука, все главы в одном файле</title>
+ </head>
+ <body>
+  <h1>Дни Осы и Паука</h1>
+  <h3>Все главы в одном файле</h3>
+  
+  <a href="/dowas_ru/index.html">Оглавление</a><br>
+  
+  <button id="set_bright_css">Яркая тема</button>
+  <button id="set_dark_css">Тусклая тема</button>
+  <hr>
+  
+  <script type="text/javascript">
+   // https://stackoverflow.com/questions/8796107/how-to-make-changeable-themes-using-css-and-javascript
+   document.getElementById('set_dark_css').onclick = function () { 
+    document.getElementById('theme_css').href = '/dowas_ru/style_dark.css';
+   };
+   
+   document.getElementById('set_bright_css').onclick = function () { 
+    document.getElementById('theme_css').href = '/dowas_ru/style_bright.css';
+   };
+  </script>
+  
+  <div id="content"></div>
+  
+  <script src="showdown.min.js"></script>
+  <script type="text/javascript">
+	display_chapters();
+   
+	async function display_chapters() {
+		// https://github.com/showdownjs/showdown
+		var converter = new showdown.Converter();
+		
+		var text = await download_chapters();
+		
+		var html = converter.makeHtml(text);
+		document.getElementById("content").innerHTML = html;
+	}
+	
+	async function download_chapters() {
+		var chapter_names = ["22_23.md", "24.md", "25.md", "26.md", "27.md", "28.md", "29.md", "30.md", "31.md", "32.md", "33.md"];
+		var reply;
+		var text = "#"; // Решётка превратит последующую строку в заголовок
+		
+		for (i in chapter_names) {
+			reply = await fetch(chapter_names[i]);
+			text += (await reply.text()) + "\n#";
+		}
+		
+		return text;
+	}
+  </script>
+</body>
+</html>
